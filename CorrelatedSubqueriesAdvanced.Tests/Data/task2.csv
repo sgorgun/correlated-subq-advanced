@@ -1,0 +1,50 @@
+id,title,count_with_discount_5,count_without_discount_5,difference
+INTEGER,CHAR,INTEGER,INTEGER,REAL
+1,Sweet apple,4,0,100.0
+2,Small apple,0,5,-100.0
+3,African Banana,6,0,100.0
+4,Brazilian Banana,0,2,-100.0
+5,Ukrainian Orange,1,0,100.0
+6,Italian Orange,0,15,-100.0
+7,Clear water,0,22,-100.0
+8,Sweet water,0,39,-100.0
+9,Orange Juice,14,28,-33.33
+10,Banana Juice,2,17,-78.95
+11,Coca Cola,1,2,-33.33
+12,Pepsi Cola,4,10,-42.86
+13,Big carrot,11,6,29.41
+14,Small carrot,26,7,57.58
+15,big potato,2,30,-87.5
+16,ukrainian potato,17,13,13.33
+17,Green Cabbage,1,29,-93.33
+18,Typical cabbage,2,1,33.33
+19,Yellow tomato,6,0,100.0
+20,Pink tomato,7,3,40.0
+21,blue carp,0,11,-100.0
+22,big carp,0,14,-100.0
+23,ocean shark,9,9,0.0
+24,white shark,18,0,100.0
+25,orange shark,2,12,-71.43
+26,red shark,3,11,-57.14
+27,carpik,0,19,-100.0
+28,small carp,0,10,-100.0
+29,Orange Juice,0,12,-100.0
+30,Banana Juice,0,20,-100.0
+31,Coca Cola,0,7,-100.0
+32,Pepsi Cola,0,9,-100.0
+33,Big carrot,0,13,-100.0
+34,Small carrot,0,13,-100.0
+35,big potato,0,7,-100.0
+36,ukrainian potato,0,8,-100.0
+37,Green Cabbage,1,8,-77.78
+38,Typical cabbage,3,4,-14.29
+39,Yellow tomato,0,9,-100.0
+40,Pink tomato,0,11,-100.0
+41,Sweet apple,0,13,-100.0
+42,Russian apple,7,8,-6.67
+43,green banana but good,10,2,66.67
+44,african banana,3,3,0.0
+45,italian orange,0,19,-100.0
+46,greece orange,0,0,0.0
+47,crystal water,0,0,0.0
+48,soda water,0,0,0.0

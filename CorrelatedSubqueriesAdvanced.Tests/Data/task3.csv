@@ -1,0 +1,22 @@
+product_id,title,manufacturer_id,manufacturer
+INTEGER,CHAR,INTEGER,CHAR
+1,Red Apple,3,Third manufacturer
+2,Banana,2,Second manufacturer
+3,Orange,4,Fourth manufacturer
+4,Water,4,Fourth manufacturer
+5,Juice,1,First manufacturer
+6,Cola,4,Fourth manufacturer
+7,Carrot,2,Second manufacturer
+8,Potato,3,Third manufacturer
+9,Cabbage,4,Fourth manufacturer
+10,Tomato,4,Fourth manufacturer
+11,Lemon,,
+12,Beer,,
+13,Cod,,
+14,Pike,,
+15,carp,2,Second manufacturer
+16,Vodka,2,Second manufacturer
+17,strawberry,,
+18,blueberry,,
+19,onion,,
+20,Shark,,
