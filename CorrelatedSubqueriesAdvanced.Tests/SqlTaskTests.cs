@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Helpers;
-using CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Models;
+using AutocodeDB.Helpers;
+using AutocodeDB.Models;
 using Microsoft.Data.Sqlite;
 using NUnit.Framework;
 

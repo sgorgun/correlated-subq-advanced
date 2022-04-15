@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
-using CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Models;
+using AutocodeDB.Models;
 
-namespace CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Parsers
+namespace AutocodeDB.Parsers
 {
     public static class QueryParser
     {

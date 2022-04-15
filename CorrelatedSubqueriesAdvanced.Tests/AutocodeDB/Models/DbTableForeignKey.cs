@@ -1,4 +1,4 @@
-﻿namespace CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Models
+﻿namespace AutocodeDB.Models
 {
     public class DbTableForeignKey
     {

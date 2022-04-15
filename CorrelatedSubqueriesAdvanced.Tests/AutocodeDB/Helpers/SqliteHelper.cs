@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using Microsoft.Data.Sqlite;
+using System.Collections.Generic;
 
-namespace CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Helpers
+namespace AutocodeDB.Helpers
 {
     public static class SqliteHelper
     {

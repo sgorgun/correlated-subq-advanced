@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
-using CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Models;
-using CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Parsers;
+using AutocodeDB.Models;
+using AutocodeDB.Parsers;
 
-namespace CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Helpers
+namespace AutocodeDB.Helpers
 {
     public static class CreateTableHelper
     {
-        private static readonly Regex CreateRegExp = new Regex(@"^\s*CREATE\sTABLE", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private static readonly Regex CreateRegExp = new Regex(@"^\s*CREATE\sTABLE\s\[?[A-Za-z_]*\[?\s*", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private static readonly Regex PrimaryKeyRegExp = new Regex(@"\s+PRIMARY\s+KEY", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private static readonly Regex ForeignKeyRegExp = new Regex(@"\s+FOREIGN\s+KEY", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private static readonly Regex UniqueKeyRegExp = new Regex(@"\s+UNIQUE", RegexOptions.Compiled | RegexOptions.IgnoreCase);

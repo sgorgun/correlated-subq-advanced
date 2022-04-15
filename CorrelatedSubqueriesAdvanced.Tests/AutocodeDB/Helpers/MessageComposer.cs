@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace CorrelatedSubqueriesAdvanced.Tests.AutocodeDB.Helpers
+namespace AutocodeDB.Helpers
 {
     public class MessageComposer
     {
