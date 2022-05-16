@@ -15,8 +15,8 @@ INTEGER,CHAR,INTEGER,INTEGER,REAL
 13,Big carrot,11,6,29.41
 14,Small carrot,26,7,57.58
 15,big potato,2,30,-87.5
-16,ukrainian potato,17,13,13.33
-17,Green Cabbage,1,29,-93.33
+16,ukrainian potato,13,13,0.0
+17,Green Cabbage,5,29,-70.59
 18,Typical cabbage,2,1,33.33
 19,Yellow tomato,6,0,100.0
 20,Pink tomato,7,3,40.0
@@ -43,8 +43,8 @@ INTEGER,CHAR,INTEGER,INTEGER,REAL
 41,Sweet apple,0,13,-100.0
 42,Russian apple,7,8,-6.67
 43,green banana but good,10,2,66.67
-44,african banana,3,3,0.0
-45,italian orange,0,19,-100.0
+44,african banana,3,7,-40.0
+45,italian orange,0,15,-100.0
 46,greece orange,0,0,0.0
 47,crystal water,0,0,0.0
 48,soda water,0,0,0.0
