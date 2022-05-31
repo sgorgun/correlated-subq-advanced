@@ -6,7 +6,7 @@
  
 2. Calculate how many more (in percentage) products were sold when their discount was more than 5% (id and title of the product, the quantity of this product purchased with this discount, the quantity of this product purchased without a discount or with a discount below 5%, the difference in percentage between the number of product sold with discount and without one). Sort ascending by product id. Scheme of result data set: **id | title | count_with_discount_5 | count_without_discount_5 | difference**
  
-3. Get the leading manufacturers for each product title. If the product was not sold, the leader-manufacturer is NULL. Sort ascendidng by title id. Scheme of result data set: **title_id| title | manufacturer_id | manufacturer**
+3. Get the leading manufacturers for each product title. If the product was not sold, the leader-manufacturer is NULL. Sort ascendidng by title id. Scheme of result data set: **product_id| title | manufacturer_id | manufacturer**
 
 
 
