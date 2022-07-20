@@ -11,21 +11,32 @@ namespace CorrelatedSubqueriesAdvanced.Tests
     public class SqlTaskTests
     {
         private const int FilesCount = 3;
-        private static readonly string ProjectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-        private static readonly string DatabaseFile = Path.Combine(ProjectDirectory, "DB", "marketplace.db");
-        private static readonly string EmptyDatabaseFile = Path.Combine(ProjectDirectory, "DB", "empty_tables.db");
-        private static readonly string InsertFile = Path.Combine(ProjectDirectory, "Data", "insert.sql");
-        private static readonly string[] FileNames = { "task1.sql", "task2.sql", "task3.sql" };
-        private static readonly string[] QueryFiles = SqlTask.GetFilePaths(FileNames);
-        private static readonly string[] Queries = QueryHelper.GetQueries(QueryFiles);
-        private static SelectResult[] ActualResults;
-        private static SelectResult[] ExpectedResults;
+        private readonly string DatabaseFile;
+        private readonly string EmptyDatabaseFile;
+        private readonly string InsertFile;
+        private readonly string[] FileNames;
+        private readonly string[] QueryFiles;
+        private readonly string[] Queries;
+        private SelectResult[] ActualResults;
+        private SelectResult[] ExpectedResults;
+
+        public SqlTaskTests()
+        {
+            FileIOHelper.FilesCount = FilesCount;
+            FileIOHelper.GenerateProjectDirectory(Environment.CurrentDirectory);
+            DatabaseFile = FileIOHelper.GetDBFullPath("marketplace.db");
+            EmptyDatabaseFile = FileIOHelper.GetEmptyDBFullPath("empty_tables.db");
+            InsertFile = FileIOHelper.GetInsertFileFullPath("insert.sql");
+            FileNames = FileIOHelper.GetFilesNames();
+            QueryFiles = SqlTask.GetFilePaths(FileNames);
+            Queries = QueryHelper.GetQueries(QueryFiles);
+        }
 
         [OneTimeSetUp]
         public void Setup()
         {
             SqliteHelper.OpenConnection(DatabaseFile);
-            DeserializeResultFiles();
+            ExpectedResults = FileIOHelper.DeserializeResultFiles(FileNames);
             ActualResults = SelectHelper.GetResults(Queries);
         }
 
@@ -134,20 +145,20 @@ namespace CorrelatedSubqueriesAdvanced.Tests
 
         #region Private methods
 
-        private static void AssertData(int index)
+        private void AssertData(int index)
         {
             AssertFileExist(index);
             AssertFileNotEmpty(index);
             AssertErrors(index);
         }
 
-        private static void AssertErrors(int index)
+        private void AssertErrors(int index)
         {
             if (!string.IsNullOrEmpty(ActualResults[index].ErrorMessage))
                 Assert.Fail(ActualResults[index].ErrorMessage);
         }
 
-        private static void AssertFileExist(int index)
+        private void AssertFileExist(int index)
         {
             var actual = Queries[index];
             var message = $"The file '{FileNames[index]}' was not found.";
@@ -155,7 +166,7 @@ namespace CorrelatedSubqueriesAdvanced.Tests
                 Assert.Fail(message);
         }
 
-        private static void AssertFileNotEmpty(int index)
+        private void AssertFileNotEmpty(int index)
         {
             var actual = Queries[index];
             var message = $"The file '{FileNames[index]}' contains no entries.";
@@ -163,7 +174,7 @@ namespace CorrelatedSubqueriesAdvanced.Tests
                 Assert.Fail(message);
         }
 
-        private static void InsertData()
+        private void InsertData()
         {
             var queries = QueryHelper.GetQueries(InsertFile);
             foreach (var query in queries)
@@ -172,29 +183,6 @@ namespace CorrelatedSubqueriesAdvanced.Tests
                 command.ExecuteNonQuery();
             }
         }
-
-        private static void SerializeResultFiles()
-        {
-            for (var i = 0; i < FilesCount; i++)
-            {
-                var query = Queries[i];
-                var file = Path.ChangeExtension(FileNames[i], ".csv");
-                file = Path.Combine(ProjectDirectory, "Data", file);
-                var result = SelectHelper.GetResult(query);
-                SelectHelper.SerializeResult(result, file);
-            }
-        }
-
-        private static void DeserializeResultFiles()
-        {
-            var files = Directory.GetFiles(Path.Combine(ProjectDirectory, "Data"), "*.csv");
-            if (files.Length == 0)
-                throw new FileNotFoundException("Files with expected data were not found.");
-            ExpectedResults = new SelectResult[FilesCount];
-            for (var i = 0; i < FilesCount; i++)
-                ExpectedResults[i] = SelectHelper.DeserializeResult(files[i]);
-        }
-
         #endregion
     }
 }
